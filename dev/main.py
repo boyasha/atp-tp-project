@@ -1,4 +1,5 @@
-import pygame
+from Display import Display
 
 
-pygame.init()
+if __name__ == '__main__':
+    Display()

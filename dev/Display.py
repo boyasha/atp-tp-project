@@ -1,29 +1,11 @@
 import pygame
+from Globals import Globals
 
 
-class Display():
-    displayWidth = 600
-    displayHeight = 400
-
-    def __init__(self, displayWidth, displayHeight):
-        self.displayWidth = displayWidth
-        self.displayHeight = displayHeight
-
-    white = (255, 255, 255)
-    yellow = (255, 255, 102)
-    black = (0, 0, 0)
-    red = (213, 50, 80)
-    green = (0, 255, 0)
-    blue = (50, 153, 213)
-
-    display = pygame.display.set_mode((self.displayWidth, self.isplayHeight))
-    pygame.display.set_caption('Interesting Snake Game')
-
-    snake_block = 10
-    snake_speed = 15
-
-    font_style = pygame.font.SysFont("spendthrift", 25)
-    score_font = pygame.font.SysFont("cosmeticians", 35)
+class Display:
+    pygame.init()
+    display = pygame.display.set_mode([Globals.display_width, Globals.display_width])
+    pygame.display.set_caption(Globals.display_caption)
 
     def showGameScore(self, score):
         value = self.score_font.render("Your score: " + str(score), True, self.yellow)
@@ -34,4 +16,14 @@ class Display():
             pygame.draw.rect(self.display, self.black, [i[0], i[1], snakeBlock, snakeList])
 
     def message(self, textOfMessage, color):
-        self.display.blit(self.font_style.render(textOfMessage, True, color), [self.displayWidth/2, self.displayHeight/2])
+        self.display.blit(self.font_style.render(textOfMessage, True, color),
+                          [self.displayWidth / 2, self.displayHeight / 2])
+
+    game_over = False
+    while not game_over:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_over = True
+
+    pygame.quit()
+    quit()
