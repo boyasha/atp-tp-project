@@ -5,7 +5,7 @@ class Globals:
     # in pixels
     display_width = 800
     display_height = 600
-    display_caption = 'Interesting Snake Game'
+    display_caption = 'Интересная змейка'
 
     # colors in RGB
     white_color = (255, 255, 255)
@@ -16,8 +16,8 @@ class Globals:
     blue_color = (50, 153, 213)
 
     # in pixels
-    snake_block = 10
-    snake_speed = 15
+    snake_block = 20
+    snake_speed = 25
 
     # start point
     x_start = 300
@@ -25,3 +25,6 @@ class Globals:
 
     # change x and y when snake is moving
     new_coord = [0, 0]
+
+    # text if you lose
+    lose_message = "Ты проиграл!"

@@ -1,7 +1,8 @@
 import pygame
 from Globals import Globals
 from Drawer import Drawer
-
+from Logic import Logic
+import time
 
 class Display:
     pygame.init()
@@ -16,14 +17,21 @@ class Display:
             if event.type == pygame.QUIT:
                 game_over = True
             if event.type == pygame.KEYDOWN:
-                Drawer().moving_snake(event.type)
+                Drawer().moving_snake(event)
+
+        game_over = Logic().check_border_crossing(game_over, Globals.display_width, Globals.display_height, Globals.x_start, Globals.y_start)
 
         Globals.x_start += Globals.new_coord[0]
         Globals.y_start += Globals.new_coord[1]
 
-        Drawer().drawing_snake(display, Globals.blue_color, [Globals.x_start, Globals.y_start, 10, 10])
+        display.fill(Globals.black_color)
+        Drawer().drawing_snake(display, Globals.blue_color, [Globals.x_start, Globals.y_start, Globals.snake_block, Globals.snake_block])
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(Globals.snake_speed)
+
+    Drawer().message(display, Globals.lose_message, Globals.red_color)
+    pygame.display.update()
+    time.sleep(3)
 
     pygame.quit()
     quit()
