@@ -8,7 +8,7 @@ class Drawer:
     """
 
     def drawing_snake(self, display, color, position_array):
-        return pygame.draw.rect(display, color, position_array)
+        pygame.draw.rect(display, color, position_array)
 
     def moving_snake(self, move_side):
         if move_side.key == pygame.K_LEFT or move_side.key == pygame.K_a or move_side.unicode == "ф":

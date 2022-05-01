@@ -2,6 +2,7 @@ import pygame
 from Globals import Globals
 from Drawer import Drawer
 from Logic import Logic
+from Food import Food
 import time
 
 class Display:
@@ -26,6 +27,9 @@ class Display:
 
         display.fill(Globals.black_color)
         Drawer().drawing_snake(display, Globals.blue_color, [Globals.x_start, Globals.y_start, Globals.snake_block, Globals.snake_block])
+        Food().spawn_food(display, Globals.green_color, Globals.display_width, Globals.display_height, Globals.snake_block/2)
+        Food().check_
+
         pygame.display.update()
         clock.tick(Globals.snake_speed)
 

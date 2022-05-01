@@ -28,3 +28,9 @@ class Globals:
 
     # text if you lose
     lose_message = "Ты проиграл!"
+
+    length_snake = 1
+
+    # x y coord of food
+    x_food = 0
+    y_food = 0
