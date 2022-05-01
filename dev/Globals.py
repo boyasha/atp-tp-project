@@ -3,8 +3,8 @@ class Globals:
     Class for globals variables
     """
     # in pixels
-    display_width = 600
-    display_height = 400
+    display_width = 800
+    display_height = 600
     display_caption = 'Interesting Snake Game'
 
     # colors in RGB
@@ -19,3 +19,9 @@ class Globals:
     snake_block = 10
     snake_speed = 15
 
+    # start point
+    x_start = 300
+    y_start = 200
+
+    # change x and y when snake is moving
+    new_coord = [0, 0]
