@@ -1,5 +1,4 @@
 import pygame
-from Globals import Globals
 
 
 class Drawer:
