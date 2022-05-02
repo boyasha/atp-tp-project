@@ -1,5 +1,9 @@
 from Display import Display
 
 
-if __name__ == '__main__':
+def main():
     Display()
+
+
+if __name__ == '__main__':
+    main()
