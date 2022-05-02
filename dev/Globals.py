@@ -27,7 +27,7 @@ class Globals:
     new_coord = [0, 0]
 
     # text if you lose
-    lose_message = "Ты проиграл!"
+    lose_message = "Ты проиграл! Нажми U - для игры заново или Q - для выхода"
 
     length_snake = 1
 

@@ -25,6 +25,6 @@ class Drawer:
             Globals.new_coord[1] = 10
 
     def message(self, display, text, color):
-        font_style = pygame.font.SysFont(None, 50)
+        font_style = pygame.font.SysFont(None, 30)
         style_message = font_style.render(text, True, color)
-        display.blit(style_message, [Globals.display_width/3 + 20, Globals.display_height/3 + 60])
+        display.blit(style_message, [Globals.display_width/8, Globals.display_height/8 + 150])
