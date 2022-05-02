@@ -1,14 +1,15 @@
 from Globals import Globals
-import random
 import pygame
-
+import random
 
 class Food:
-    def spawn_food(self, display, color, display_width, display_height, food_block):
-        Globals.x_food = round(random.randrange(0, display_width - food_block) / 10.0) * 10.0
-        Globals.y_food = round(random.randrange(0, display_width - food_block) / 10.0) * 10.0
-        pygame.draw.rect(display, color, [Globals.x_food, Globals.y_food, food_block, food_block])
+    def spawn_food(self, display, color):
+        pygame.draw.rect(display, color, [Globals.x_food, Globals.y_food, Globals.food_block, Globals.food_block])
 
-    def check_eat_food(self, display, x, y,  x_food, y_food):
-        if x == x_food and y == y_food:
-            print("Yummy!")
+    def check_eat_food(self, display):
+        if abs(Globals.x_food-Globals.x_start) < Globals.food_block and abs(Globals.y_food-Globals.y_start) < Globals.food_block:
+            Globals.length_snake += 1
+            Globals.snake_speed += 0.5
+            Globals.x_food = round(random.randrange(0, Globals.display_width - Globals.food_block) / Globals.food_block) * Globals.food_block
+            Globals.y_food = round(random.randrange(0, Globals.display_height - Globals.food_block) / Globals.food_block) * Globals.food_block
+

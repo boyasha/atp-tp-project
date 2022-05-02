@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 import pygame
 from Globals import Globals
 from Drawer import Drawer
 from Logic import Logic
 from Food import Food
-import time
+import random
 
 
 class Display:
@@ -24,7 +25,6 @@ class Display:
         while not game_over:
 
             while game_close:
-
                 self.display.fill(Globals.black_color)
                 Drawer().message(self.display, Globals.lose_message, Globals.red_color)
                 pygame.display.update()
@@ -50,15 +50,22 @@ class Display:
             Globals.y_start += Globals.new_coord[1]
             self.display.fill(Globals.black_color)
 
-            Drawer().drawing_snake(self.display, Globals.blue_color,
-                                   [Globals.x_start, Globals.y_start, Globals.snake_block, Globals.snake_block])
-            Food().spawn_food(self.display, Globals.green_color, Globals.display_width, Globals.display_height,
-                              Globals.snake_block / 2)
-            pygame.display.update()
-            Food().check_eat_food(self.display, Globals.x_start, Globals.y_start, Globals.x_food, Globals.y_food)
-            self.clock.tick(Globals.snake_speed)
+            Food().spawn_food(self.display, Globals.green_color)
+            snake_head = [Globals.x_start, Globals.y_start]
+            Globals.snake_list.append(snake_head)
 
-        pygame.display.update()
+            if len(Globals.snake_list) > Globals.length_snake:
+                del Globals.snake_list[0]
+
+            for i in Globals.snake_list[:-1]:
+                if i == snake_head:
+                    game_close = True
+
+            Drawer().drawing_snake(self.display, Globals.blue_color)
+            pygame.display.update()
+            Food().check_eat_food(self.display)
+
+            self.clock.tick(Globals.snake_speed)
 
         pygame.quit()
         quit()

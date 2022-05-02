@@ -1,3 +1,6 @@
+import random
+
+
 class Globals:
     """
     Class for globals variables
@@ -8,29 +11,30 @@ class Globals:
     display_caption = 'Интересная змейка'
 
     # colors in RGB
-    white_color = (255, 255, 255)
-    yellow_color = (255, 255, 102)
     black_color = (0, 0, 0)
     red_color = (213, 50, 80)
-    green_color = (0, 255, 0)
-    blue_color = (50, 153, 213)
+    green_color = (122, 230, 140)
+    blue_color = (13, 143, 141)
 
-    # in pixels
+    # snake data
+    snake_list = []
+    length_snake = 1
+
+    # game data
     snake_block = 20
-    snake_speed = 25
+    snake_speed = 12
+    food_block = 15
 
     # start point
-    x_start = 300
-    y_start = 200
+    x_start = round(random.randrange(0, display_width - snake_block) / snake_block) * snake_block
+    y_start = round(random.randrange(0, display_height - snake_block) / snake_block) * snake_block
 
     # change x and y when snake is moving
     new_coord = [0, 0]
 
     # text if you lose
-    lose_message = "Ты проиграл! Нажми U - для игры заново или Q - для выхода"
-
-    length_snake = 1
+    lose_message = "Ты проиграл! Нажми U - для игры заново или Q - для выхода."
 
     # x y coord of food
-    x_food = 0
-    y_food = 0
+    x_food = round(random.randrange(0, display_width - food_block) / food_block) * food_block
+    y_food = round(random.randrange(0, display_height - food_block) / food_block) * food_block

@@ -11,3 +11,6 @@ class Logic:
         if x >= display_width or x < 0 or y >= display_height or y < 0:
             check_game_over = True
         return check_game_over
+
+    def check_snake_cross_snake(self, ):
+        pass
