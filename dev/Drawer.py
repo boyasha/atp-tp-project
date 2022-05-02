@@ -36,4 +36,4 @@ class Drawer:
     def message_of_score(self, display, text, color):
         font_style = pygame.font.SysFont(None, 40)
         style_message = font_style.render(text, True, color)
-        display.blit(style_message, [10, 10])
+        display.blit(style_message, [320, 10])
