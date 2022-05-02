@@ -26,7 +26,7 @@ class Display:
 
             while game_close:
                 self.display.fill(Globals.black_color)
-                Drawer().message(self.display, Globals.lose_message, Globals.red_color)
+                Drawer().message_of_lose(self.display, Globals.lose_message, Globals.red_color)
                 pygame.display.update()
 
                 for event in pygame.event.get():
@@ -49,6 +49,9 @@ class Display:
             Globals.x_start += Globals.new_coord[0]
             Globals.y_start += Globals.new_coord[1]
             self.display.fill(Globals.black_color)
+
+            Drawer().message_of_score(self.display, Globals.score_message + f" {Globals.length_snake - 1}",
+                                      Globals.white_color)
 
             Food().spawn_food(self.display, Globals.green_color)
             snake_head = [Globals.x_start, Globals.y_start]

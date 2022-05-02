@@ -12,6 +12,7 @@ class Globals:
 
     # colors in RGB
     black_color = (0, 0, 0)
+    white_color = (255, 255, 255)
     red_color = (213, 50, 80)
     green_color = (122, 230, 140)
     blue_color = (13, 143, 141)
@@ -19,6 +20,7 @@ class Globals:
     # snake data
     snake_list = []
     length_snake = 1
+
 
     # game data
     snake_block = 20
@@ -34,6 +36,7 @@ class Globals:
 
     # text if you lose
     lose_message = "Ты проиграл! Нажми U - для игры заново или Q - для выхода."
+    score_message = "Ваш счёт:"
 
     # x y coord of food
     x_food = round(random.randrange(0, display_width - food_block) / food_block) * food_block

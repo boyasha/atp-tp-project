@@ -9,7 +9,8 @@ class Drawer:
 
     def drawing_snake(self, display, color):
         for item in Globals.snake_list:
-            pygame.draw.rect(display, color, [item[0], item[1], Globals.snake_block, Globals.snake_block])
+            pygame.draw.rect(display, color, [item[0], item[1], Globals.snake_block, Globals.snake_block],\
+                             border_radius=5)
 
     def moving_snake(self, move_side):
         snake_block = Globals.snake_block
@@ -27,7 +28,12 @@ class Drawer:
             Globals.new_coord[0] = 0
             Globals.new_coord[1] = snake_block
 
-    def message(self, display, text, color):
+    def message_of_lose(self, display, text, color):
         font_style = pygame.font.SysFont(None, 30)
         style_message = font_style.render(text, True, color)
         display.blit(style_message, [Globals.display_width/8, Globals.display_height/8 + 150])
+
+    def message_of_score(self, display, text, color):
+        font_style = pygame.font.SysFont(None, 40)
+        style_message = font_style.render(text, True, color)
+        display.blit(style_message, [10, 10])
