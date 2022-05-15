@@ -20,7 +20,7 @@ class Game:
                         Display.__init__()
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT or pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 return True
             if event.type == pygame.KEYDOWN:
                 Globals.new_coord = Snake.moving_snake(event, Globals.snake_block)

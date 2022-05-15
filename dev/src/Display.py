@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 import pygame
-from Globals import Globals
-from Drawer import Drawer
-from Snake import Snake
-from Food import Food
-from Game import Game
+from src.Globals import Globals
+from src.Drawer import Drawer
+from src.Snake import Snake
+from src.Food import Food
+from src.Game import Game
 
 
 class Display:
-
     def __init__(self):
         self.Globals = Globals()
         self.Drawer = Drawer()
@@ -27,7 +26,6 @@ class Display:
         game_close = False
 
         while not game_over:
-
             game_over = self.Game.game(self.Globals, self.Drawer, self.Snake, self, self.display, game_close, game_over)
 
             snake_head = [self.Globals.x_start, self.Globals.y_start]

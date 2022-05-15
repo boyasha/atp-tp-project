@@ -7,7 +7,7 @@ class Snake:
     """
 
     def __init__(self):
-        pass
+        self.check_snake_move_side = ''
 
     def drawing_snake(self, display, color, snake_block, snake_list):
         for item in snake_list:
@@ -28,17 +28,41 @@ class Snake:
 
     def moving_snake(self, move_side, snake_block):
         new_coord = [0, 0]
+
         if move_side.key == pygame.K_LEFT or move_side.key == pygame.K_a or move_side.unicode == "ф":
-            new_coord[0] = -snake_block
-            new_coord[1] = 0
+            if self.check_snake_move_side == 'right':
+                new_coord[0] = snake_block
+                new_coord[1] = 0
+            else:
+                new_coord[0] = -snake_block
+                new_coord[1] = 0
+                self.check_snake_move_side = 'left'
+
         elif move_side.key == pygame.K_RIGHT or move_side.key == pygame.K_d or move_side.unicode == "в":
-            new_coord[0] = snake_block
-            new_coord[1] = 0
+            if self.check_snake_move_side == 'left':
+                new_coord[0] = -snake_block
+                new_coord[1] = 0
+            else:
+                new_coord[0] = snake_block
+                new_coord[1] = 0
+                self.check_snake_move_side = 'right'
+
         elif move_side.key == pygame.K_UP or move_side.key == pygame.K_w or move_side.unicode == "ц":
-            new_coord[0] = 0
-            new_coord[1] = -snake_block
+            if self.check_snake_move_side == 'down':
+                new_coord[0] = 0
+                new_coord[1] = snake_block
+            else:
+                new_coord[0] = 0
+                new_coord[1] = -snake_block
+                self.check_snake_move_side = 'up'
+
         elif move_side.key == pygame.K_DOWN or move_side.key == pygame.K_s or move_side.unicode == "ы":
-            new_coord[0] = 0
-            new_coord[1] = snake_block
+            if self.check_snake_move_side == 'up':
+                new_coord[0] = 0
+                new_coord[1] = -snake_block
+            else:
+                new_coord[0] = 0
+                new_coord[1] = snake_block
+                self.check_snake_move_side = 'down'
 
         return new_coord

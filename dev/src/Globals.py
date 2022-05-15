@@ -46,3 +46,5 @@ class Globals:
             random.randrange(0, self.display_width - self.food_block) / self.food_block) * self.food_block
         self.y_food = round(
             random.randrange(0, self.display_height - self.food_block) / self.food_block) * self.food_block
+
+        self.check_move_side = 'up'
