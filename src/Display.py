@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+''# -*- coding: utf-8 -*-
 import pygame
 from src.Globals import Globals
 from src.Message import Message
