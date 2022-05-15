@@ -1,12 +1,24 @@
 import pygame
+import random
 
 
 class Snake:
     """
     Class for logic of game
     """
+    def __init__(self, display_width, display_height):
+        self.display_width = display_width
+        self.display_height = display_height
+        self.snake_length = 1
+        self.snake_list = []
 
-    def __init__(self):
+        self.snake_speed = 10
+        self.snake_block = 20
+        self.snake_color = (13, 143, 141)
+
+        self.x_snake = round(random.randrange(0, self.display_width - self.snake_block) / self.snake_block) * self.snake_block
+        self.y_snake = round(random.randrange(0, self.display_height - self.snake_block) / self.snake_block) * self.snake_block
+
         self.check_snake_move_side = ''
 
     def drawing_snake(self, display, color, snake_block, snake_list):

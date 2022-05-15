@@ -3,17 +3,20 @@ import pygame
 from src.Globals import Globals
 from src.Drawer import Drawer
 from src.Snake import Snake
-from src.Food import Food
 from src.Game import Game
+from src.Apple import Apple
+from src.Pear import Pear
 
 
 class Display:
     def __init__(self):
         self.Globals = Globals()
         self.Drawer = Drawer()
-        self.Snake = Snake()
-        self.Food = Food()
+        self.Snake = Snake(self.Globals.display_width, self.Globals.display_height)
         self.Game = Game()
+        self.Apple = Apple(self.Globals.display_width, self.Globals.display_height)
+        self.Pear = Pear(self.Globals.display_width, self.Globals.display_height)
+
         pygame.init()
         self.display = pygame.display.set_mode([self.Globals.display_width, self.Globals.display_height])
         pygame.display.set_caption(self.Globals.display_caption)
@@ -44,12 +47,14 @@ class Display:
             self.Drawer.message_of_score(self.display, self.Globals.score_message + f" {self.Globals.length_snake - 1}",
                                          self.Globals.white_color)
 
-            self.Food.spawn_food(self.display, self.Globals.green_color, self.Globals)
+            self.Apple.spawn_apple(self.display, self.Globals.apple_color)
+            self.Pear.spawn_pear(self.display, self.Globals.pear_color)
 
-            self.Snake.drawing_snake(self.display, self.Globals.blue_color, self.Globals.snake_block,
+            self.Snake.drawing_snake(self.display, self.Globals.snake_block,
                                      self.Globals.snake_list)
             pygame.display.update()
-            self.Food.check_eat_food(self.Globals)
+            self.Apple.check_eat_apple(self.Globals.x_start, self.Globals.y_start)
+            self.Pear.check_pear_eat(self.Globals.x_start, self.Globals.y_start)
 
             self.clock.tick(self.Globals.snake_speed)
 
