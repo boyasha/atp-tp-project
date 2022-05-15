@@ -16,10 +16,8 @@ class Snake:
         self.snake_block = 20
         self.snake_color = (13, 143, 141)
 
-        self.x_snake = round(
-            random.randrange(0, self.display_width - self.snake_block) / self.snake_block) * self.snake_block
-        self.y_snake = round(
-            random.randrange(0, self.display_height - self.snake_block) / self.snake_block) * self.snake_block
+        self.x_snake = random.randrange(20, self.display_width - 20, 20)
+        self.y_snake = random.randrange(20, self.display_width - 20, 20)
 
         self.snake_list = []
 
@@ -88,7 +86,7 @@ class Snake:
         self.snake_length += 1
         self.snake_speed += 0.5
 
-    def snake_eat_pale(self):
+    def snake_eat_paer(self):
         if self.snake_speed == 8:
             self.snake_speed = 12
         self.snake_length += 1

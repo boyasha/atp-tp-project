@@ -25,7 +25,7 @@ class Display:
 
         self.clock = pygame.time.Clock()
         self.new_coord = [0, 0]
-
+        self.snake_head = []
         self.game_over = False
         self.game_close = False
         self.start_game()
@@ -36,10 +36,10 @@ class Display:
             self.game_over = self.Game.game(self.Globals, self.Message, self.Snake, self, self.display, self.game_close,
                                             self.game_over)
 
-            snake_head = [self.Snake.x_snake, self.Snake.y_snake]
-            self.Snake.snake_list.append(snake_head)
+            self.snake_head = [self.Snake.x_snake, self.Snake.y_snake]
+            self.Snake.snake_list.append(self.snake_head)
 
-            self.game_close = self.Snake.check_border_crossing() or self.Snake.check_snake_cross_snake(snake_head) \
+            self.game_close = self.Snake.check_border_crossing() or self.Snake.check_snake_cross_snake(self.snake_head) \
                               or self.Bomb.check_bomb_eat(self.Snake.x_snake, self.Snake.y_snake)
 
             self.Snake.x_snake += self.new_coord[0]
@@ -60,7 +60,7 @@ class Display:
                 self.Bomb.change_coord_bomb()
 
             if self.Pear.check_pear_eat(self.Snake.snake_list[-1][0], self.Snake.snake_list[-1][1]):
-                self.Snake.snake_eat_pale()
+                self.Snake.snake_eat_paer()
                 self.Bomb.change_coord_bomb()
 
             self.clock.tick(self.Snake.snake_speed)

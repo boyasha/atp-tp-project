@@ -1,6 +1,6 @@
 import pygame
 import random
-from src.FoodCreator import FoodCreator, Food
+from src.FoodCreator import FoodCreator
 
 
 class AppleCreator(FoodCreator):
@@ -19,14 +19,14 @@ class Apple:
         self.apple_block = 7
         self.apple_color = (124, 252, 0)
 
-        self.x_apple = round(random.randrange(50, self.display_width - 50))
-        self.y_apple = round(random.randrange(50, self.display_height - 50))
+        self.x_apple = round(random.randrange(60, self.display_width - 60), 20)
+        self.y_apple = round(random.randrange(60, self.display_height - 60), 20)
 
     def spawn_apple(self, display):
         pygame.draw.circle(display, self.apple_color, [self.x_apple, self.y_apple], self.apple_block)
 
     def check_eat_apple(self, x_snake, y_snake):
-        if abs(self.x_apple-x_snake) < self.apple_block * 2.2 and abs(self.y_apple-y_snake) < self.apple_block * 2.2:
-            self.x_apple = round(random.randrange(50, self.display_width - 50))
-            self.y_apple = round(random.randrange(50, self.display_height - 50))
+        if abs(self.x_apple-x_snake) <= 15 and abs(self.y_apple-y_snake) <= 15:
+            self.x_apple = round(random.randrange(60, self.display_width - 60), 20)
+            self.y_apple = round(random.randrange(60, self.display_height - 60), 20)
             return True

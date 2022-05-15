@@ -15,12 +15,3 @@ class FoodCreator(ABC):
         """
         food = self.factory_method(display_size)
         return food
-
-
-class Food(ABC):
-    """
-    Abstract class for food
-    """
-    @abstractmethod
-    def __str__(self):
-        pass

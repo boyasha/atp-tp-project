@@ -5,10 +5,10 @@ class Game:
     def __init__(self):
         pass
 
-    def game(self, Globals, Drawer, Snake, Display, display, game_close, game_over):
+    def game(self, Globals, Message, Snake, Display, display, game_close, game_over):
         while game_close:
             display.fill(Globals.black_color)
-            Drawer.message_of_lose(display)
+            Message.message_of_lose(display)
             pygame.display.update()
 
             for event in pygame.event.get():
