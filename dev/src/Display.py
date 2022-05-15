@@ -55,11 +55,11 @@ class Display:
             self.Snake.drawing_snake(self.display)
             pygame.display.update()
 
-            if self.Apple.check_eat_apple(self.Snake.x_snake, self.Snake.y_snake):
+            if self.Apple.check_eat_apple(self.Snake.snake_list[-1][0], self.Snake.snake_list[-1][1]):
                 self.Snake.snake_eat_apple()
                 self.Bomb.change_coord_bomb()
 
-            if self.Pear.check_pear_eat(self.Snake.x_snake, self.Snake.y_snake):
+            if self.Pear.check_pear_eat(self.Snake.snake_list[-1][0], self.Snake.snake_list[-1][1]):
                 self.Snake.snake_eat_pale()
                 self.Bomb.change_coord_bomb()
 

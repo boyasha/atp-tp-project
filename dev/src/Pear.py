@@ -26,7 +26,9 @@ class Pear:
         pygame.draw.circle(display, self.pear_color, [self.x_pear, self.y_pear], self.pear_block)
 
     def check_pear_eat(self, x_snake, y_snake):
-        if abs(self.x_pear - x_snake) <= self.pear_block * 2.2 and abs(self.y_pear - y_snake) <= self.pear_block * 2.2:
+        if abs(self.x_pear - x_snake) <= 13 and abs(self.y_pear - y_snake) <= 13:
+            print(f'{self.x_pear - x_snake}  :  {self.y_pear - y_snake}')
             self.x_pear = round(random.randrange(50, self.display_height - 50))
             self.y_pear = round(random.randrange(50, self.display_height - 50))
+
             return True
