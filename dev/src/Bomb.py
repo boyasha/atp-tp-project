@@ -1,5 +1,14 @@
 import pygame
 import random
+from src.FoodCreator import FoodCreator, Food
+
+
+class BombCreator(FoodCreator):
+    """
+    Create class for Apples
+    """
+    def factory_method(self, display_width, display_height):
+        return Bomb(display_width, display_height)
 
 
 class Bomb:

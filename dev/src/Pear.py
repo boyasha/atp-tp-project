@@ -1,6 +1,14 @@
 import pygame
 import random
-from abc import ABC, abstractmethod
+from src.FoodCreator import FoodCreator, Food
+
+
+class PearCreator(FoodCreator):
+    """
+    Create class for Apples
+    """
+    def factory_method(self, display_width, display_height):
+        return Pear(display_width, display_height)
 
 
 class Pear:

@@ -4,9 +4,9 @@ from src.Globals import Globals
 from src.Message import Message
 from src.Snake import Snake
 from src.Game import Game
-from src.Apple import Apple
-from src.Pear import Pear
-from src.Bomb import Bomb
+from src.Apple import AppleCreator
+from src.Pear import PearCreator
+from src.Bomb import BombCreator
 
 
 class Display:
@@ -15,9 +15,9 @@ class Display:
         self.Game = Game()
         self.Message = Message(self.Globals.display_width, self.Globals.display_height)
         self.Snake = Snake(self.Globals.display_width, self.Globals.display_height)
-        self.Apple = Apple(self.Globals.display_width, self.Globals.display_height)
-        self.Pear = Pear(self.Globals.display_width, self.Globals.display_height)
-        self.Bomb = Bomb(self.Globals.display_width, self.Globals.display_height)
+        self.Apple = AppleCreator().factory_method(self.Globals.display_width, self.Globals.display_height)
+        self.Pear = PearCreator().factory_method(self.Globals.display_width, self.Globals.display_height)
+        self.Bomb = BombCreator().factory_method(self.Globals.display_width, self.Globals.display_height)
 
         pygame.init()
         self.display = pygame.display.set_mode([self.Globals.display_width, self.Globals.display_height])
@@ -58,12 +58,10 @@ class Display:
             if self.Apple.check_eat_apple(self.Snake.x_snake, self.Snake.y_snake):
                 self.Snake.snake_eat_apple()
                 self.Bomb.change_coord_bomb()
-                print(f'{self.Apple.x_apple} : {self.Apple.y_apple}')
 
             if self.Pear.check_pear_eat(self.Snake.x_snake, self.Snake.y_snake):
                 self.Snake.snake_eat_pale()
                 self.Bomb.change_coord_bomb()
-                print(f'{self.Pear.x_pear} : {self.Pear.y_pear}')
 
             self.clock.tick(self.Snake.snake_speed)
 

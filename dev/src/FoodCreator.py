@@ -6,12 +6,21 @@ class FoodCreator(ABC):
     Abstract factory for classes
     """
     @abstractmethod
-    def factory_method(self):
+    def factory_method(self, display_size):
         pass
 
-    def create(self, name):
+    def create(self, display_size):
         """
         Creates food by name
         """
-        food = self.factory_method(name)
+        food = self.factory_method(display_size)
         return food
+
+
+class Food(ABC):
+    """
+    Abstract class for food
+    """
+    @abstractmethod
+    def __str__(self):
+        pass
