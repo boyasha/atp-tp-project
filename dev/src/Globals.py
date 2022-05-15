@@ -14,11 +14,4 @@ class Globals:
 
         # colors in RGB
         self.black_color = (0, 0, 0)
-        self.white_color = (255, 255, 255)
-        self.red_color = (213, 50, 80)
         self.green_color = (122, 230, 140)
-
-        # text if you lose
-        self.lose_message = "Ты проиграл! Нажми U - для игры заново или Q - для выхода."
-        self.score_message = "Ваш счёт:"
-

@@ -8,8 +8,7 @@ class Game:
     def game(self, Globals, Drawer, Snake, Display, display, game_close, game_over):
         while game_close:
             display.fill(Globals.black_color)
-            Drawer.message_of_lose(display, Globals.lose_message, Globals.red_color,
-                                   Globals)
+            Drawer.message_of_lose(display)
             pygame.display.update()
 
             for event in pygame.event.get():
